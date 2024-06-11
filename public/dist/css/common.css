@@ -1,0 +1,42 @@
+@charset "UTF-8";
+/* 顏色參數化 */
+/* color */
+/* photo */
+/* 專案共用樣式 */
+.container {
+  width: 95%;
+  margin: 0 auto 3rem auto;
+}
+
+@media screen and (min-width: 1440px) {
+  .container {
+    max-width: 2160px;
+  }
+}
+.background-image {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.action {
+  color: white;
+  background-color: #39bae6;
+  border-radius: 0.25rem;
+  display: inline-block;
+  font-size: 1rem;
+  padding: 0.25rem 1rem;
+  transition: all 0.1s linear;
+}
+
+.action:hover {
+  background-color: #267c99;
+  box-shadow: 0 1px 5px 0 rgb(87, 87, 87);
+}
+
+@media screen and (min-width: 768px) {
+  .action {
+    font-size: 1.2rem;
+    padding: 0.75rem 2rem;
+  }
+}/*# sourceMappingURL=common.css.map */

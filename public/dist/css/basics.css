@@ -1,0 +1,12 @@
+@charset "UTF-8";
+/* 顏色參數化 */
+/* color */
+/* photo */
+/* 設定網頁主體: start */
+html,
+body {
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 1rem;
+  line-height: 1.4;
+  background-color: #f6f7f8;
+}/*# sourceMappingURL=basics.css.map */
