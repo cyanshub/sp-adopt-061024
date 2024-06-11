@@ -53,58 +53,57 @@ td {
 a {
   text-decoration: none;
 }
+
 /* reset:end */
 
 
+/* 設定專案樣式: start */
+/* 顏色參數化 */
+/* color */
+$main-text-color: #333333;
+$main-background-color: #f6f7f8;
+
+$navbar-title-text-color: #1a5366;
+$navbar-text-color: #267b98;
+$header-background-color: #ffffff;
+$header-box-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.1);
+
+$hamburger-background-color: #267b98;
+
+$banner-main-title-text-color: #1a5366;
+$banner-main-description-text-color: #267b98;
+$banner-sub-text-color: #ffffff;
+$banner-box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.08);
+
+$card-text-color: #ffffff;
+$card-background-color: #a9a9a9;
+$card-box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.08);
+
+$adoption-title-text-color: #267c99;
+$adoption-description-text-color: #5e5c5c;
+$adoption-background-color: #ffffff;
+$adoption-box-shadow: 2px 10px 12px 0px rgba(0, 0, 0, 0.1);
+
+$footer-text-color: #fff;
+$footer-background-color: #4a4a4a;
+
+$action-text-color: white;
+$action-background-color: #39bae6;
+$action-hover-background-color: #267c99;
+$action-box-shadow: 0 1px 5px 0 rgba(87, 87, 87, 1);
+
+
 /* 設定網頁主體: start */
-html,body {
+html,
+body {
   font-family: 'Noto Sans TC', sans-serif;
   font-size: 1rem;
   line-height: 1.4;
   background-color: $main-background-color;
 }
 
-
-/* 設定專案樣式: start */
-/* 顏色參數化 */
-:root {
-  /* color */
-  $main-text-color: #333333;
-  $main-background-color: #f6f7f8;
-
-  $navbar-title-text-color: #1a5366;
-  $navbar-text-color: #267b98;
-  $header-background-color: #ffffff;
-  $header-box-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.1);
-
-  $hamburger-background-color: #267b98;
-
-  $banner-main-title-text-color: #1a5366;
-  $banner-main-description-text-color: #267b98;
-  $banner-sub-text-color: #ffffff;
-  $banner-box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.08);
-
-  $card-text-color: #ffffff;
-  $card-background-color: #a9a9a9;
-  $card-box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.08);
-
-  $adoption-title-text-color: #267c99;
-  $adoption-description-text-color: #5e5c5c;
-  $adoption-background-color: #ffffff;
-  $adoption-box-shadow: 2px 10px 12px 0px rgba(0, 0, 0, 0.1);
-
-  $footer-text-color: #fff;
-  $footer-background-color: #4a4a4a;
-
-  $action-text-color: white;
-  $action-background-color: #39bae6;
-  $action-hover-background-color: #267c99;
-  $action-box-shadow: 0 1px 5px 0 rgba(87, 87, 87, 1);
-}
-
 /* 專案共用樣式 */
 .container {
-  width: 85%;
   margin: 0 auto 3rem auto;
 }
 
@@ -136,3 +135,118 @@ html,body {
   background-repeat: no-repeat;
 }
 
+/* photo */
+$main-banner-image-url: url("/images/banner/banner-photo-1.avif");
+$sub-banner-image-left-url: url("/images/banner/banner-photo-2.avif");
+$sub-banner-image-right-url: url("/images/banner/banner-photo-3.avif");
+
+
+/* 活動區banner區塊樣式 */
+.banner-wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 200px);
+  grid-gap: 1.5rem;
+
+  grid-template-areas:
+    "main main main main"
+    "left left right right";
+
+  .main-banner,
+  .sub-banner {
+    padding: 1rem;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: flex-end;
+    align-items: flex-end;
+    box-shadow: $banner-box-shadow;
+  }
+
+  .main-banner {
+    grid-area: main;
+    background-image: $main-banner-image-url;
+
+    .banner-description {
+      font-size: 1rem;
+      color: $banner-main-description-text-color;
+    }
+
+    .banner-title {
+      margin-bottom: 2rem;
+      font-size: 1.3rem;
+      color: $banner-main-title-text-color;
+      font-weight: 600;
+    }
+
+    .banner-description {
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+  }
+
+  .sub-banner {
+    .banner-title {
+      font-size: 1rem;
+      font-weight: 400;
+      letter-spacing: 1px;
+      color: $banner-sub-text-color;
+      margin-bottom: 1rem;
+    }
+
+    .banner-description {
+      font-size: 1.2rem;
+      font-weight: 400;
+      letter-spacing: 1px;
+      color: $banner-sub-text-color;
+      margin-bottom: 1rem;
+    }
+
+    .action {
+      font-size: 1rem;
+      padding: 0.25rem 1rem;
+    }
+
+    &.sub-banner-left {
+      grid-area: left;
+      background-image: $sub-banner-image-left-url;
+    }
+
+    &.sub-banner-right {
+      grid-area: right;
+      background-image: $sub-banner-image-right-url;
+    }
+  }
+}
+
+
+/* 電腦版活動區banner區塊樣式，導入媒體查詢768px */
+@media screen and (min-width: 768px) {
+  .banner-wrapper {
+    grid-template-areas:
+      "main main main left"
+      "main main main right";
+
+    .main-banner {
+      justify-content: center;
+      align-items: flex-start;
+
+      .banner-title {
+        font-size: 2rem;
+      }
+
+      .banner-description {
+        font-size: 1.5rem;
+      }
+    }
+
+    .sub-banner {
+      .banner-title {
+        font-size: 1.5rem;
+      }
+
+      .banner-description {
+        font-size: 1rem;
+      }
+    }
+  }
+}
