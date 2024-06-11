@@ -429,3 +429,12 @@ $sub-banner-image-right-url: url("/images/banner/banner-photo-3.avif");
   }
 }
 
+/* 網站頁腳footer區塊樣式 */
+footer {
+  width: 100%;
+  text-align: center;
+  padding: 0.5rem;
+  color: $footer-text-color;
+  background-color: $footer-background-color;
+  letter-spacing: 2px;
+}
