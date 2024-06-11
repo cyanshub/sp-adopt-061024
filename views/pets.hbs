@@ -20,3 +20,23 @@
     </div>
   </div>
 </section>
+
+<!-- 撰寫 album 區塊 -->
+<section id="album">
+  <div class="container">
+    <div class="album-wrapper" id="data-panel-petlist">
+      <!-- phote example -->
+      {{#each pets}}
+      <div class="card">
+        <img
+          src="/{{this.image}}"
+          alt="{{this.name}}" class="card-img">
+        <div class="card-text">
+          <h3 class="card-title">{{this.name}}</h3>
+          <p class="card-description">{{this.age}}</p>
+        </div>
+      </div>
+      {{/each}}
+    </div>
+  </div>
+</section>

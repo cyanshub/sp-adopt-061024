@@ -70,9 +70,15 @@ body {
 
 /* 專案共用樣式 */
 .container {
+  width: 95%;
   margin: 0 auto 3rem auto;
 }
 
+@media screen and (min-width: 1440px) {
+  .container {
+    max-width: 2160px;
+  }
+}
 .action {
   color: white;
   background-color: #39bae6;
@@ -184,4 +190,92 @@ body {
   .banner-wrapper .sub-banner .banner-description {
     font-size: 1rem;
   }
+}
+/* 相片集 album 區塊樣式 */
+.album-wrapper {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 1.5rem;
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+  border: none;
+  /* 將圖片超出容器的部分隱藏 */
+  overflow: hidden;
+  box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.08);
+  -webkit-box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.08);
+  -moz-box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.08);
+  /* 定位樣式 */
+  position: relative;
+  /* 設定圖卡圖片轉場效果 */
+  background-color: #a9a9a9;
+  /* 設定邊框轉場特效 */
+}
+.card .card-img {
+  width: 100%;
+  height: 300px;
+  display: block;
+  /* 避免圖片因為調整長寬而變形 */
+  -o-object-fit: cover;
+     object-fit: cover;
+  /* 設定圖卡圖片轉場效果 */
+  transition: opacity 0.3s ease-out;
+}
+.card .card-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  /* 以自身尺寸作為移動距離 */
+  transform: translate(-50%, -50%);
+  color: #ffffff;
+  text-align: center;
+  /* 設定圖卡游標懸移文字效果 */
+  transition: opacity 0.3s ease-out;
+  opacity: 0;
+  /* 設定圖卡文案樣式 */
+}
+.card .card-text .card-title {
+  font-size: 1.5rem;
+  margin-bottom: 0.2rem;
+}
+.card .card-text .card-description {
+  font-size: 1.2rem;
+}
+.card:hover {
+  /* 設定圖卡游標懸移文字效果 */
+  /* 設定圖卡圖片轉場效果 */
+}
+.card:hover .card-text {
+  opacity: 1;
+}
+.card:hover .card-img {
+  opacity: 0.4;
+}
+.card::before, .card::after {
+  content: "";
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  bottom: 1rem;
+  left: 1rem;
+  transition: transform 0.4s ease-out;
+}
+.card::before {
+  border-top: 1px solid #ffffff;
+  border-bottom: 1px solid #ffffff;
+  transform: scale(0, 1);
+}
+.card:hover::before {
+  transform: scale(1.05, 1);
+}
+.card::after {
+  border-left: 1px solid #ffffff;
+  border-right: 1px solid #ffffff;
+  transform: scale(1, 0);
+}
+.card:hover::after {
+  transform: scale(1, 1.05);
 }/*# sourceMappingURL=style.css.map */
